@@ -1,0 +1,1093 @@
+package com.example.seafight;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+public class Person_buttons extends AppCompatActivity {
+
+    private int[][] field = {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
+
+    private int[][] Person_field = {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {9, 9, 9, 9, 0, 0, 0, 0, 9, 9, 9, 0},
+            {9, 2, 2, 9, 9, 9, 9, 0, 9, 3, 9, 0},
+            {9, 9, 9, 9, 2, 2, 9, 0, 9, 3, 9, 0},
+            {9, 1, 9, 9, 9, 9, 9, 0, 9, 3, 9, 0},
+            {9, 9, 9, 9, 9, 9, 9, 0, 9, 9, 9, 0},
+            {9, 1, 9, 3, 9, 4, 9, 9, 9, 0, 0, 0},
+            {9, 9, 9, 3, 9, 4, 9, 1, 9, 9, 9, 9},
+            {0, 0, 9, 3, 9, 4, 9, 9, 9, 9, 2, 9},
+            {0, 0, 9, 9, 9, 4, 9, 9, 9, 9, 2, 9},
+            {0, 0, 0, 0, 9, 9, 9, 1, 9, 9, 9, 9},
+            {0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0}
+    };
+
+//    private int[][] Person_field = {
+//            {9, 9, 9, 0, 0, 0, 0, 9, 9, 9, 0, 0},
+//            {9, 3, 9, 9, 9, 0, 0, 9, 2, 9, 0, 0},
+//            {9, 3, 9, 1, 9, 9, 9, 9, 2, 9, 0, 0},
+//            {9, 3, 9, 9, 9, 2, 9, 9, 9, 9, 9, 9},
+//            {9, 9, 9, 0, 9, 2, 9, 0, 0, 9, 3, 9},
+//            {0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 3, 9},
+//            {0, 9, 9, 9, 4, 9, 9, 1, 9, 9, 3, 9},
+//            {0, 9, 1, 9, 4, 9, 9, 9, 9, 9, 9, 9},
+//            {0, 9, 9, 9, 4, 9, 2, 9, 9, 9, 0, 0},
+//            {0, 0, 0, 9, 4, 9, 2, 9, 1, 9, 0, 0},
+//            {0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+//    };
+//    private int[][] Person_field = {
+//            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+//            {0, 4, 4, 4, 4, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 4, 4, 4, 4, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 4, 4, 4, 4, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 4, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+//            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+//    };
+
+    private int[][] Computer = {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
+
+    public Button[][] textView;
+    public TextView[][] textViewCom;
+
+    ArrayList<Integer> array = new ArrayList<>(100);
+    ArrayList<Integer> direction = new ArrayList<>(4);
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_play2);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE);
+
+        for (int i = 1; i <= 100; i++) {
+            array.add(i);
+        }
+        for (int i = 0; i < 4; i++) {
+            direction.add(i);
+        }
+
+        pusk();
+
+
+
+        start();
+
+        click();
+    }
+
+    public int count_2 = 2, count_3 = 3, count_4 = 4, total = 0, score = 0;
+    public int x1 = 10, y1 = 10, x2 = 0, y2 = 0;
+
+    public void click() {
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int x = 0; x < 10; x++) {
+                    for (int y = 0; y < 10; y++) {
+                        if (findViewById(v.getId()) == textView[x][y]) {
+
+                            if (field[x][y] == 8 || field[x][y] == 0) {
+                                field[x][y] = -1;
+                                textView[x][y].setText("0");
+//                                Toast toast = Toast.makeText(getApplicationContext(), "Мимо", Toast.LENGTH_SHORT);
+//                                toast.show();
+                                request();
+                            } else if (field[x][y] == -1 || field[x][y] == 10) {
+//                                Toast toast1 = Toast.makeText(getApplicationContext(), "Уже было", Toast.LENGTH_SHORT);
+//                                toast1.show();
+                            } else if (field[x][y] == 1) {
+                                field[x][y] = 10;
+                                for (int i = x - 1; i < x + 2; i++) {
+                                    for (int j = y - 1; j < y + 2; j++) {
+                                        field[i][j] = -1;
+                                    }
+                                }
+                                field[x][y] = 10;
+                                for (int i = 0; i < 10; i++) {
+                                    for (int j = 0; j < 10; j++) {
+                                        if (field[i][j] == -1) {
+                                            textView[i][j].setText("0");
+                                        }
+                                    }
+                                }
+                                textView[x][y].setText("X");
+                                Toast toast_die = Toast.makeText(getApplicationContext(), "Убил", Toast.LENGTH_SHORT);
+                                toast_die.show();
+                                total++;
+                            } else if (field[x][y] == 2) {
+                                if (x1 > x || y1 > y){
+                                    x1 = x;
+                                    y1 = y;
+                                }
+                                if (x2 < x || y2 < y){
+                                    x2 = x;
+                                    y2 = y;
+                                }
+                                count_2--;
+                                field[x][y] = 10;
+                                textView[x][y].setText("X");
+//                                Toast toast_shot = Toast.makeText(getApplicationContext(), "Ранил", Toast.LENGTH_SHORT);
+//                                toast_shot.show();
+                                if (count_2 == 0) {
+                                    Toast toast_die = Toast.makeText(getApplicationContext(), "Убил", Toast.LENGTH_SHORT);
+                                    toast_die.show();
+                                    if (x1 == x) {
+                                        for (int i = x1 - 1; i < x1 + 3; i++) {
+                                            for (int j = y1 - 1; j < y1 + 2; j++) {
+                                                field[i][j] = -1;
+                                            }
+                                        }
+                                    } else if (y1 == y){
+                                        for (int i = x1 - 1; i < x1 + 4; i++) {
+                                            for (int j = y1 - 1; j < y1 + 2; j++) {
+                                                field[i][j] = -1;
+                                            }
+                                        }
+                                    }
+                                    field[x1][y1] = 10;
+                                    field[x2][y2] = 10;
+                                    for (int i = 0; i < 10; i++) {
+                                        for (int j = 0; j < 10; j++) {
+                                            if (field[i][j] == -1) {
+                                                textView[i][j].setText("0");
+                                            }
+                                        }
+                                    }
+
+
+                                    textView[x1][y1].setText("X");
+                                    textView[x2][y2].setText("X");
+                                    x1 = 10;
+                                    y1 = 10;
+                                    x2 = 0;
+                                    y2 = 0;
+                                    total++;
+                                    count_2 = 2;
+                                }
+                            } else if (field[x][y] == 3) {
+                                if (x1 > x || y1 > y){
+                                    x1 = x;
+                                    y1 = y;
+                                }
+                                if (x2 < x || y2 < y){
+                                    x2 = x;
+                                    y2 = y;
+                                }
+                                count_3--;
+                                field[x][y] = 10;
+                                textView[x][y].setText("X");
+//                                Toast toast_shot = Toast.makeText(getApplicationContext(), "Ранил", Toast.LENGTH_SHORT);
+//                                toast_shot.show();
+                                if (count_3 == 0) {
+                                    Toast toast_die = Toast.makeText(getApplicationContext(), "Убил", Toast.LENGTH_SHORT);
+                                    toast_die.show();
+                                    if (x1 == x) {
+                                        for (int i = x1 - 1; i < x1 + 2; i++) {
+                                            for (int j = y1 - 1; j < y1 + 4; j++) {
+                                                field[i][j] = -1;
+                                            }
+                                        }
+                                    } else if (y1 == y){
+                                        for (int i = x1 - 1; i < x1 + 4; i++) {
+                                            for (int j = y1 - 1; j < y1 + 2; j++) {
+                                                field[i][j] = -1;
+                                            }
+                                        }
+                                    }
+                                    field[x1][y1] = 10;
+                                    if (x1 == x) {
+                                        field[x2][y2 - 1] = 10;
+                                    } else if (y1 == y){
+                                        field[x2 - 1][y2] = 10;
+                                    }
+                                    field[x2][y2] = 10;
+                                    for (int i = 0; i < 10; i++) {
+                                        for (int j = 0; j < 10; j++) {
+                                            if (field[i][j] == -1) {
+                                                textView[i][j].setText("0");
+                                            }
+                                        }
+                                    }
+
+                                    textView[x][y].setText("X");
+                                    if (x1 == x) {
+                                        textView[x2][y2 - 1].setText("X");
+                                    } else if (y1 == y){
+                                        textView[x2 - 1][y2].setText("X");
+                                    }
+                                    textView[x2][y2].setText("X");
+                                    x1 = 10;
+                                    y1 = 10;
+                                    x2 = 0;
+                                    y2 = 0;
+                                    total++;
+                                    count_3 = 3;
+                                }
+                            } else if (field[x][y] == 4) {
+                                count_4--;
+                                field[x][y] = 10;
+                                textView[x][y].setText("X");
+//                                Toast toast_shot = Toast.makeText(getApplicationContext(), "Ранил", Toast.LENGTH_SHORT);
+//                                toast_shot.show();
+                                if (count_4 == 0) {
+                                    Toast toast_die = Toast.makeText(getApplicationContext(), "Убил", Toast.LENGTH_SHORT);
+                                    toast_die.show();
+                                    total++;
+                                    count_4 = 4;
+                                }
+                            }
+                            if (total == 10) {
+                                setContentView(R.layout.activity_win_or_lose);
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                textView[i][j].setOnClickListener(onClickListener);
+            }
+        }
+    }
+
+    final Random random = new Random();
+
+    public void stand_ship(int row, int col, int way, int ship) {
+        if (way == 0) {
+            for (int i = row - 1; i < row + 2; i++) {
+                for (int j = col - 1; j < col + ship + 1; j++) {
+                    field[i][j] = 8;
+                }
+            }
+        } else {
+            for (int i = row - 1; i < row + ship + 1; i++) {
+                for (int j = col - 1; j < col + 2; j++) {
+                    field[i][j] = 8;
+                }
+            }
+        }
+        for (int i = 0; i < ship; i++) {
+            field[row][col] = ship;
+            if (way == 0) {
+                col++;
+            } else {
+                row++;
+            }
+        }
+    }
+
+    public boolean can(int row, int col, int way, int ship) {
+        boolean result = false;
+        if (way == 0) {
+            if (col + ship <= 10) {
+                result = true;
+            }
+        } else if (way == 1) {
+            if (row + ship <= 10) {
+                result = true;
+            }
+        }
+        if (result) {
+            for (int x = 0; x < ship; x++) {
+                if (field[row][col] == 0) {
+                    if (way == 0) {
+                        col++;
+                    } else {
+                        row++;
+                    }
+                    if (field[row][col] != 0) {
+                        result = false;
+                        break;
+                    }
+                } else {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public void pusk() {
+        for (int ship = 4; ship > 0; ship--) {
+            for (int countOfShip = 1; countOfShip < 6 - ship; countOfShip++) {
+                boolean qwerty = true;
+                while (qwerty) {
+                    int row = random.nextInt(9) + 1;
+                    int col = random.nextInt(9) + 1;
+                    int way = random.nextInt(2);
+                    if (can(row, col, way, ship)) {
+                        stand_ship(row, col, way, ship);
+                        qwerty = false;
+                    }
+                }
+            }
+        }
+    }
+
+    boolean flag = true, flag2 = true, flag3 = true;
+
+    public int r, c, r1, c1, r3, c3;
+
+    public int way = 0, ways = 0;
+
+    public int choice(ArrayList arr) {
+        int x = random.nextInt(arr.size());
+        int i = (int) arr.get(x);
+        array.remove(x);
+        return i;
+    }
+
+    public void request() {
+        if (flag) {
+            int index = choice(array);
+
+            int row, col;
+            if (index % 10 == 0) {
+                col = index / 10;
+                row = index / 10;
+            } else {
+                col = index % 10;
+                row = index / 10 + 1;
+            }
+            if (Person_field[row][col] == 1) {
+                for (int i = row - 1; i < row + 2; i++) {
+                    for (int j = col - 1; j < col + 2; j++) {
+                        Computer[i][j] = -1;
+                    }
+                }
+                Computer[row][col] = 8;
+                for (int i = 1; i < 11; i++) {
+                    for (int j = 1; j < 11; j++) {
+                        if (Computer[i][j] == -1) {
+                            int y = array.indexOf(i * 10 + j + 1);
+                            if (y != -1) {
+                                array.remove(y);
+                            }
+                            textViewCom[i - 1][j - 1].setText("0");
+                        }
+                    }
+                }
+                textViewCom[row - 1][col - 1].setText("X");
+                score++;
+                request();
+            } else if (Person_field[row][col] == 2) {
+                r = row;
+                c = col;
+
+//                Intent intent = new Intent(this, second_request.class).putExtra("col", col).putExtra("row", row);
+//                startActivity(intent);
+
+                Computer[row][col] = 8;
+                flag = false;
+                textViewCom[row - 1][col - 1].setText("X");
+                second_request();
+            } else if (Person_field[row][col] == 3) {
+                r = row;
+                c = col;
+
+//                Intent intent = new Intent(this, second_request.class).putExtra("col", col).putExtra("row", row);
+//                startActivity(intent);
+
+                Computer[row][col] = 8;
+                flag = false;
+                textViewCom[row - 1][col - 1].setText("X");
+                second_request();
+            } else if (Person_field[row][col] == 4) {
+                r = row;
+                c = col;
+
+//                Intent intent = new Intent(this, second_request.class).putExtra("col", col).putExtra("row", row);
+//                startActivity(intent);
+
+                Computer[row][col] = 8;
+                flag = false;
+                textViewCom[row - 1][col - 1].setText("X");
+                second_request();
+            } else {
+                textViewCom[row - 1][col - 1].setText("0");
+            }
+            if (score == 10) {
+                Toast toast_die = Toast.makeText(getApplicationContext(), "Конец, ты проиграл", Toast.LENGTH_SHORT);
+                toast_die.show();
+            }
+
+            //}
+
+//        boolean flag = true;
+//
+//        while (flag) {
+//
+//            int row = random.nextInt(4) + 1;
+//            int col = random.nextInt(4) + 1;
+//
+//            if (Computer[row][col] == 0) {
+//                Computer[row][col] = 8;
+//                flag = false;
+//                if (Person_field[row][col] == 1) {
+//                    for (int i = row - 1; i < row + 2; i++) {
+//                        for (int j = col - 1; j < col + 2; j++) {
+//                            Computer[i][j] = -1;
+//                        }
+//                    }
+//                    Computer[row][col] = 8;
+//                    for (int i = 1; i < 6; i++) {
+//                        for (int j = 1; j < 6; j++) {
+//                            if (Computer[i][j] == -1) {
+//                                textViewCom[i - 1][j - 1].setText("0");
+//                            }
+//                        }
+//                    }
+//                    textViewCom[row - 1][col - 1].setText("X");
+//                    score++;
+//                    request();
+//                } else {
+//                    textViewCom[row - 1][col - 1].setText("0");
+//                }
+//                if (score == 4) {
+//                    Toast toast_die = Toast.makeText(getApplicationContext(), "Конец, ты проиграл", Toast.LENGTH_SHORT);
+//                    toast_die.show();
+//                }
+//            }
+//        }
+        } else {
+            second_request();
+        }
+    }
+
+    public void second_request() {
+        if (flag2) {
+            while (true) {
+                if (ways == 0) {
+                    if (Person_field[r][c - 1] == 0 || Person_field[r][c - 1] == 9) {
+                        break;
+                    } else {
+                        way++;
+                    }
+                }
+                if (ways == 1) {
+                    if (Person_field[r + 1][c] == 0 || Person_field[r + 1][c] == 9) {
+                        break;
+                    } else {
+                        way++;
+                    }
+                }
+                if (ways == 2) {
+                    if (Person_field[r][c + 1] == 0 || Person_field[r][c + 1] == 9) {
+                        break;
+                    } else {
+                        way++;
+                    }
+                }
+                if (ways == 3) {
+                    if (Person_field[r - 1][c] == 0 || Person_field[r - 1][c] == 9) {
+                        break;
+                    } else {
+                        way++;
+                    }
+                }
+            }
+
+
+
+            if (way == 0) {
+                way++;
+                int y = array.indexOf(r * 10 + c - 1 + 1);
+                if (y != -1) {
+                    array.remove(y);
+                }
+                if (Person_field[r][c - 1] == 2 || Person_field[r][c - 1] == 3 || Person_field[r][c - 1] == 4) {
+                    way = 0;
+                    Computer[r][c - 1] = 8;
+//                    try {
+//                        TimeUnit.SECONDS.sleep(2);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+                    textViewCom[r - 1][c - 2].setText("X");
+                    if (Person_field[r][c] == 3 || Person_field[r][c] == 4) {
+                        flag2 = false;
+                        r1 = r;
+                        c1 = c - 1;
+                        third_request();
+                    } else {
+                        flag = true;
+                    }
+                    direction.clear();
+                    for (int i = 0; i < 4; i++) {
+                        direction.add(i);
+                    }
+                } else {
+                    Computer[r][c - 1] = -1;
+                    if ((r - 1) >= 0 && (c - 2) >= 0) {
+//                        try {
+//                            TimeUnit.SECONDS.sleep(2);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+                        textViewCom[r - 1][c - 2].setText("0");
+                    }
+                }
+            } else if (way == 2) {
+                way++;
+                int y = array.indexOf(r * 10 + c + 1 + 1);
+                if (y != -1) {
+                    array.remove(y);
+                }
+                if (Person_field[r][c + 1] == 2 || Person_field[r][c + 1] == 3 || Person_field[r][c + 1] == 4) {
+                    way = 0;
+                    Computer[r][c + 1] = 8;
+//                    try {
+//                        TimeUnit.SECONDS.sleep(2);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+                    textViewCom[r - 1][c].setText("X");
+                    if (Person_field[r][c] == 3 || Person_field[r][c] == 4) {
+                        flag2 = false;
+                        r1 = r;
+                        c1 = c + 1;
+                        third_request();
+                    } else {
+                        flag = true;
+                    }
+                    direction.clear();
+                    for (int i = 0; i < 4; i++) {
+                        direction.add(i);
+                    }
+                } else {
+                    Computer[r][c + 1] = -1;
+                    if ((r - 1) >= 0 && c >= 0) {
+//                        try {
+//                            TimeUnit.SECONDS.sleep(2);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+                        textViewCom[r - 1][c].setText("0");
+                    }
+                }
+            } else if (way == 1) {
+                way++;
+                int y = array.indexOf((r + 1) * 10 + c + 1);
+                if (y != -1) {
+                    array.remove(y);
+                }
+                if (Person_field[r + 1][c] == 2 || Person_field[r + 1][c] == 3 || Person_field[r + 1][c] == 4) {
+                    way = 0;
+                    Computer[r + 1][c] = 8;
+//                    try {
+//                        TimeUnit.SECONDS.sleep(2);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+                    textViewCom[r][c - 1].setText("X");
+                    if (Person_field[r][c] == 3 || Person_field[r][c] == 4) {
+                        flag2 = false;
+                        r1 = r + 1;
+                        c1 = c;
+                        third_request();
+                    } else {
+                        flag = true;
+                    }
+                    direction.clear();
+                    for (int i = 0; i < 4; i++) {
+                        direction.add(i);
+                    }
+                } else {
+                    Computer[r + 1][c] = -1;
+                    if ((c - 1) >= 0 && r >= 0) {
+//                        try {
+//                            TimeUnit.SECONDS.sleep(2);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+                        textViewCom[r][c - 1].setText("0");
+                    }
+                }
+            } else if (way == 3) {
+                way++;
+                int y = array.indexOf((r - 1) * 10 + c + 1);
+                if (y != -1) {
+                    array.remove(y);
+                }
+                if (Person_field[r - 1][c] == 2 || Person_field[r - 1][c] == 3 || Person_field[r - 1][c] == 4) {
+                    way = 0;
+                    Computer[r - 1][c] = 8;
+//                    try {
+//                        TimeUnit.SECONDS.sleep(2);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+                    textViewCom[r - 2][c - 1].setText("X");
+                    if (Person_field[r][c] == 3 || Person_field[r][c] == 4) {
+                        flag2 = false;
+                        r1 = r - 1;
+                        c1 = c;
+                        third_request();
+                    } else {
+                        flag = true;
+                    }
+                    direction.clear();
+                    for (int i = 0; i < 4; i++) {
+                        direction.add(i);
+                    }
+                } else {
+                    Computer[r - 1][c] = -1;
+                    if ((r - 2) >= 0 && (c - 1) >= 0) {
+//                        try {
+//                            TimeUnit.SECONDS.sleep(2);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+                        textViewCom[r - 2][c - 1].setText("0");
+                    }
+                }
+            }
+        } else {
+            third_request();
+        }
+    }
+
+    public boolean three = true;
+    public boolean four = true;
+
+    public void third_request() {
+        if (flag3) {
+            if (c != c1) {
+                if (three) {
+                    if (Person_field[r][c1 - (c - c1)] == 3 || Person_field[r][c1 - (c - c1)] == 4) {
+                        Computer[r][c1 - (c - c1)] = 8;
+                        textViewCom[r - 1][c1 - (c - c1) - 1].setText("X");
+                        if (Person_field[r][c] == 4) {
+                            flag3 = false;
+                            four = true;
+                            r3 = r;
+                            c3 = c1 - (c - c1);
+                            four_request();
+                        } else {
+                            flag = true;
+                            flag2 = true;
+                        }
+                        // r3 = r; c3 = c1 - (c - c1)
+                        // r and c
+                        // use flag чтобы понять сколько координат нужно
+                        // flag = true
+
+                    } else if (Person_field[r][c1 - (c - c1)] == -1 && (c1 - (c - c1) > 10 || c1 - (c - c1) < 1)) {
+                        if (Person_field[r][c - (c1 - c)] == 3 || Person_field[r][c - (c1 - c)] == 4) {
+                            Computer[r][c - (c1 - c)] = 8;
+                            textViewCom[r - 1][c - (c1 - c) - 1].setText("X");
+                            if (Person_field[r][c] == 4) {
+                                flag3 = false;
+                                four = false;
+                                r3 = r;
+                                c3 = c - (c1 - c);
+                                four_request();
+                            } else {
+                                flag = true;
+                                flag2 = true;
+                            }
+                            // only r3 = r; c3 = c - (c1 - c)
+                            // use flag чтобы понять сколько координат нужно
+                            // flag = false
+                        }
+                    } else {
+                        three = false;
+                        Computer[r][c1 - (c - c1)] = -1;
+                        textViewCom[r - 1][c1 - (c - c1) - 1].setText("0");
+                    }
+                }
+                if (!three) {
+                    if (Person_field[r][c - (c1 - c)] == 3 || Person_field[r][c - (c1 - c)] == 4) {
+                        Computer[r][c - (c1 - c)] = 8;
+                        textViewCom[r - 1][c - (c1 - c) - 1].setText("X");
+                        if (Person_field[r][c] == 4) {
+                            flag3 = false;
+                            four = false;
+                            r3 = r;
+                            c3 = c - (c1 - c);
+                            four_request();
+                        } else {
+                            flag = true;
+                            flag2 = true;
+                        }
+                        // only r3 = r; c3 = c - (c1 - c)
+                        // use flag чтобы понять сколько координат нужно
+                        // flag = false
+                    } else {
+                        three = true;
+                        Computer[r][c - (c1 - c)] = -1;
+                        textViewCom[r - 1][c - (c1 - c) - 1].setText("0");
+                    }
+                }
+            } else if (r != r1) {
+                if (three) {
+                    if (Person_field[r1 - (r - r1)][c] == 3 || Person_field[r1 - (r - r1)][c] == 4) {
+                        Computer[r1 - (r - r1)][c] = 8;
+                        textViewCom[r1 - (r - r1) - 1][c - 1].setText("X");
+                        if (Person_field[r][c] == 4) {
+                            flag3 = false;
+                            four = true;
+                            r3 = r;
+                            c3 = c - (c1 - c);
+                            four_request();
+                        } else {
+                            flag = true;
+                            flag2 = true;
+                        }
+                        // c3 = c; r3 = r1 - (r - r1)
+                        // r and c
+                        // use flag чтобы понять сколько координат нужно
+                        // flag = true
+                    } else if (Person_field[r1 - (r - r1)][c] == -1 && (r1 - (r - r1) > 10 || r1 - (r - r1) < 1)) {
+                        if (Person_field[r - (r1 - r)][c] == 3 || Person_field[r - (r1 - r)][c] == 4) {
+                            Computer[r - (r1 - r)][c] = 8;
+                            textViewCom[r - (r1 - r) - 1][c - 1].setText("X");
+                            if (Person_field[r][c] == 4) {
+                                flag3 = false;
+                                four = false;
+                                r3 = r;
+                                c3 = c - (c1 - c);
+                                four_request();
+                            } else {
+                                flag = true;
+                                flag2 = true;
+                            }
+                            // only c3 = c; r3 = r - (r1 - r)
+                            // use flag чтобы понять сколько координат нужно
+                            // flag = false
+                        }
+                    } else {
+                        three = false;
+                        Computer[r1 - (r - r1)][c] = -1;
+                        textViewCom[r1 - (r - r1) - 1][c - 1].setText("0");
+                    }
+                }
+                if (!three) {
+                    if (Person_field[r - (r1 - r)][c] == 3 || Person_field[r - (r1 - r)][c] == 4) {
+                        Computer[r - (r1 - r)][c] = 8;
+                        textViewCom[r - (r1 - r) - 1][c - 1].setText("X");
+                        if (Person_field[r][c] == 4) {
+                            flag3 = false;
+                            four = false;
+                            r3 = r;
+                            c3 = c - (c1 - c);
+                            four_request();
+                        } else {
+                            flag = true;
+                            flag2 = true;
+                        }
+                        // only c3 = c; r3 = r - (r1 - r)
+                        // use flag чтобы понять сколько координат нужно
+                        // flag = false
+                    } else {
+                        three = true;
+                        Computer[r - (r1 - r)][c] = -1;
+                        textViewCom[r - (r1 - r) - 1][c - 1].setText("0");
+                    }
+                }
+            }
+        } else {
+            four_request();
+        }
+    }
+
+    public void four_request() {
+        if (four) {
+            if (c != c1) {
+                if (c < c3) {
+                    if (Person_field[r][c3 + 1] == 4) {
+                        Computer[r][c3 + 1] = 8;
+                        textViewCom[r - 1][c3].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    } else if (Person_field[r][c3 + 1] == -1 && c3 + 1 > 10 || c3 + 1 < 1) {
+                        if (Person_field[r][c3 - 1] == 4) {
+                            Computer[r][c3 - 1] = 8;
+                            textViewCom[r - 1][c3 - 2].setText("X");
+                            flag = true;
+                            flag2 = true;
+                            flag3 = true;
+                        }
+                    } else {
+                        Computer[r][c3 + 1] = -1;
+                        textViewCom[r - 1][c3].setText("0");
+                    }
+                } else {
+                    if (Person_field[r][c3 - 1] == 4) {
+                        Computer[r][c3 - 1] = 8;
+                        textViewCom[r - 1][c3 - 2].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    } else {
+                        Computer[r][c3 - 1] = -1;
+                        textViewCom[r - 1][c3 - 2].setText("0");
+                    }
+                }
+            } else if (r != r1) {
+                if (r < r3) {
+                    if (Person_field[r3 + 1][c] == 4) {
+                        Computer[r3 + 1][c] = 8;
+                        textViewCom[r3][c - 1].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    } else if (Person_field[r3 + 1][c] == -1 && c3 + 1 > 10 || c3 + 1 < 1) {
+                        if (Person_field[r3 - 1][c] == 4) {
+                            Computer[r3 - 1][c] = 8;
+                            textViewCom[r3 - 2][c - 1].setText("X");
+                            flag = true;
+                            flag2 = true;
+                            flag3 = true;
+                        }
+                    } else {
+                        Computer[r3 + 1][c] = -1;
+                        textViewCom[r3][c - 1].setText("0");
+                    }
+                } else {
+                    if (Person_field[r3 - 1][c] == 4) {
+                        Computer[r3 - 1][c] = 8;
+                        textViewCom[r3 - 2][c - 1].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    } else {
+                        Computer[r3 - 1][c] = -1;
+                        textViewCom[r3 - 2][c - 1].setText("0");
+                    }
+                }
+            }
+        } else {
+            if (c != c1) {
+                if (c < c3) {
+                    if (Person_field[r][c3 + 1] == 4) {
+                        Computer[r][c3 + 1] = 8;
+                        textViewCom[r - 1][c3].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    }
+                } else {
+                    if (Person_field[r][c3 - 1] == 4) {
+                        Computer[r][c3 - 1] = 8;
+                        textViewCom[r - 1][c3 - 2].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    }
+                }
+            } else if (r != r1) {
+                if (r < r3) {
+                    if (Person_field[r3 + 1][c] == 4) {
+                        Computer[r3 + 1][c] = 8;
+                        textViewCom[r3][c - 1].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    }
+                } else {
+                    if (Person_field[r3 - 1][c] == 4) {
+                        Computer[r3 - 1][c] = 8;
+                        textViewCom[r3 - 2][c - 1].setText("X");
+                        flag = true;
+                        flag2 = true;
+                        flag3 = true;
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void start() {
+        textView = new Button[][]{
+                {findViewById(R.id.line1_1), findViewById(R.id.line1_2), findViewById(R.id.line1_3),
+                        findViewById(R.id.line1_4), findViewById(R.id.line1_5),
+                        findViewById(R.id.line1_6), findViewById(R.id.line1_7),
+                        findViewById(R.id.line1_8), findViewById(R.id.line1_9),
+                        findViewById(R.id.line1_10)},
+                {findViewById(R.id.line2_1), findViewById(R.id.line2_2), findViewById(R.id.line2_3),
+                        findViewById(R.id.line2_4), findViewById(R.id.line2_5),
+                        findViewById(R.id.line2_6), findViewById(R.id.line2_7),
+                        findViewById(R.id.line2_8), findViewById(R.id.line2_9),
+                        findViewById(R.id.line2_10)},
+                {findViewById(R.id.line3_1), findViewById(R.id.line3_2), findViewById(R.id.line3_3),
+                        findViewById(R.id.line3_4), findViewById(R.id.line3_5),
+                        findViewById(R.id.line3_6), findViewById(R.id.line3_7),
+                        findViewById(R.id.line3_8), findViewById(R.id.line3_9),
+                        findViewById(R.id.line3_10)},
+                {findViewById(R.id.line4_1), findViewById(R.id.line4_2), findViewById(R.id.line4_3),
+                        findViewById(R.id.line4_4), findViewById(R.id.line4_5),
+                        findViewById(R.id.line4_6), findViewById(R.id.line4_7),
+                        findViewById(R.id.line4_8), findViewById(R.id.line4_9),
+                        findViewById(R.id.line4_10)},
+                {findViewById(R.id.line5_1), findViewById(R.id.line5_2), findViewById(R.id.line5_3),
+                        findViewById(R.id.line5_4), findViewById(R.id.line5_5),
+                        findViewById(R.id.line5_6), findViewById(R.id.line5_7),
+                        findViewById(R.id.line5_8), findViewById(R.id.line5_9),
+                        findViewById(R.id.line5_10)},
+                {findViewById(R.id.line6_1), findViewById(R.id.line6_2), findViewById(R.id.line6_3),
+                        findViewById(R.id.line6_4), findViewById(R.id.line6_5),
+                        findViewById(R.id.line6_6), findViewById(R.id.line6_7),
+                        findViewById(R.id.line6_8), findViewById(R.id.line6_9),
+                        findViewById(R.id.line6_10)},
+                {findViewById(R.id.line7_1), findViewById(R.id.line7_2), findViewById(R.id.line7_3),
+                        findViewById(R.id.line7_4), findViewById(R.id.line7_5),
+                        findViewById(R.id.line7_6), findViewById(R.id.line7_7),
+                        findViewById(R.id.line7_8), findViewById(R.id.line7_9),
+                        findViewById(R.id.line7_10)},
+                {findViewById(R.id.line8_1), findViewById(R.id.line8_2), findViewById(R.id.line8_3),
+                        findViewById(R.id.line8_4), findViewById(R.id.line8_5),
+                        findViewById(R.id.line8_6), findViewById(R.id.line8_7),
+                        findViewById(R.id.line8_8), findViewById(R.id.line8_9),
+                        findViewById(R.id.line8_10)},
+                {findViewById(R.id.line9_1), findViewById(R.id.line9_2), findViewById(R.id.line9_3),
+                        findViewById(R.id.line9_4), findViewById(R.id.line9_5),
+                        findViewById(R.id.line9_6), findViewById(R.id.line9_7),
+                        findViewById(R.id.line9_8), findViewById(R.id.line9_9),
+                        findViewById(R.id.line9_10)},
+                {findViewById(R.id.line10_1), findViewById(R.id.line10_2), findViewById(R.id.line10_3),
+                        findViewById(R.id.line10_4), findViewById(R.id.line10_5),
+                        findViewById(R.id.line10_6), findViewById(R.id.line10_7),
+                        findViewById(R.id.line10_8), findViewById(R.id.line10_9),
+                        findViewById(R.id.line10_10)}
+        };
+
+        textViewCom = new TextView[][]{
+                {findViewById(R.id.lineCom1_1), findViewById(R.id.lineCom1_2), findViewById(R.id.lineCom1_3),
+                        findViewById(R.id.lineCom1_4), findViewById(R.id.lineCom1_5),
+                        findViewById(R.id.lineCom1_6), findViewById(R.id.lineCom1_7),
+                        findViewById(R.id.lineCom1_8), findViewById(R.id.lineCom1_9),
+                        findViewById(R.id.lineCom1_10)},
+                {findViewById(R.id.lineCom2_1), findViewById(R.id.lineCom2_2), findViewById(R.id.lineCom2_3),
+                        findViewById(R.id.lineCom2_4), findViewById(R.id.lineCom2_5),
+                        findViewById(R.id.lineCom2_6), findViewById(R.id.lineCom2_7),
+                        findViewById(R.id.lineCom2_8), findViewById(R.id.lineCom2_9),
+                        findViewById(R.id.lineCom2_10)},
+                {findViewById(R.id.lineCom3_1), findViewById(R.id.lineCom3_2), findViewById(R.id.lineCom3_3),
+                        findViewById(R.id.lineCom3_4), findViewById(R.id.lineCom3_5),
+                        findViewById(R.id.lineCom3_6), findViewById(R.id.lineCom3_7),
+                        findViewById(R.id.lineCom3_8), findViewById(R.id.lineCom3_9),
+                        findViewById(R.id.lineCom3_10)},
+                {findViewById(R.id.lineCom4_1), findViewById(R.id.lineCom4_2), findViewById(R.id.lineCom4_3),
+                        findViewById(R.id.lineCom4_4), findViewById(R.id.lineCom4_5),
+                        findViewById(R.id.lineCom4_6), findViewById(R.id.lineCom4_7),
+                        findViewById(R.id.lineCom4_8), findViewById(R.id.lineCom4_9),
+                        findViewById(R.id.lineCom4_10)},
+                {findViewById(R.id.lineCom5_1), findViewById(R.id.lineCom5_2), findViewById(R.id.lineCom5_3),
+                        findViewById(R.id.lineCom5_4), findViewById(R.id.lineCom5_5),
+                        findViewById(R.id.lineCom5_6), findViewById(R.id.lineCom5_7),
+                        findViewById(R.id.lineCom5_8), findViewById(R.id.lineCom5_9),
+                        findViewById(R.id.lineCom5_10)},
+                {findViewById(R.id.lineCom6_1), findViewById(R.id.lineCom6_2), findViewById(R.id.lineCom6_3),
+                        findViewById(R.id.lineCom6_4), findViewById(R.id.lineCom6_5),
+                        findViewById(R.id.lineCom6_6), findViewById(R.id.lineCom6_7),
+                        findViewById(R.id.lineCom6_8), findViewById(R.id.lineCom6_9),
+                        findViewById(R.id.lineCom6_10)},
+                {findViewById(R.id.lineCom7_1), findViewById(R.id.lineCom7_2), findViewById(R.id.lineCom7_3),
+                        findViewById(R.id.lineCom7_4), findViewById(R.id.lineCom7_5),
+                        findViewById(R.id.lineCom7_6), findViewById(R.id.lineCom7_7),
+                        findViewById(R.id.lineCom7_8), findViewById(R.id.lineCom7_9),
+                        findViewById(R.id.lineCom7_10)},
+                {findViewById(R.id.lineCom8_1), findViewById(R.id.lineCom8_2), findViewById(R.id.lineCom8_3),
+                        findViewById(R.id.lineCom8_4), findViewById(R.id.lineCom8_5),
+                        findViewById(R.id.lineCom8_6), findViewById(R.id.lineCom8_7),
+                        findViewById(R.id.lineCom8_8), findViewById(R.id.lineCom8_9),
+                        findViewById(R.id.lineCom8_10)},
+                {findViewById(R.id.lineCom9_1), findViewById(R.id.lineCom9_2), findViewById(R.id.lineCom9_3),
+                        findViewById(R.id.lineCom9_4), findViewById(R.id.lineCom9_5),
+                        findViewById(R.id.lineCom9_6), findViewById(R.id.lineCom9_7),
+                        findViewById(R.id.lineCom9_8), findViewById(R.id.lineCom9_9),
+                        findViewById(R.id.lineCom9_10)},
+                {findViewById(R.id.lineCom10_1), findViewById(R.id.lineCom10_2), findViewById(R.id.lineCom10_3),
+                        findViewById(R.id.lineCom10_4), findViewById(R.id.lineCom10_5),
+                        findViewById(R.id.lineCom10_6), findViewById(R.id.lineCom10_7),
+                        findViewById(R.id.lineCom10_8), findViewById(R.id.lineCom10_9),
+                        findViewById(R.id.lineCom10_10)}
+        };
+    }
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        openQuitDialog();
+    }
+
+    private void openQuitDialog() {
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                this);
+        quitDialog.setTitle("Вы уверены что хотите завершить игру?");
+
+        quitDialog.setPositiveButton("Таки да!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(Person_buttons.this, MainActivity.class).putExtra("control", 2).putExtra("complexity", 2);
+                startActivity(intent);
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+    }
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

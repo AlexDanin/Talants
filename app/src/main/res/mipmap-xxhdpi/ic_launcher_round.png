@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="pixel" />
+        <device id="pixel_3a_xl" />
+        <device id="pixel_xl" />
+        <device id="Nexus 6" />
+        <device id="Nexus 10" />
+        <device id="pixel_2_xl" />
+        <device id="pixel_c" />
+        <device id="pixel_3_xl" />
+      </config>
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Firebase" />
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_buttons.java" line="209" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8e5952d0-f71b-4bb4-8e10-c072abe1904c" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="4d00cc78b0339081" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seafight/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_buttons.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="856" column="32" selection-start-line="856" selection-start-column="32" selection-end-line="856" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4689#13957#0" />
+                <element signature="e#14004#14694#0" />
+                <element signature="e#14700#15576#0" />
+                <element signature="e#15582#16174#0" />
+                <element signature="e#16307#16468#0" />
+                <element signature="e#16474#20749#0" />
+                <element signature="e#19256#19259#0" />
+                <element signature="e#20755#28231#0" />
+                <element signature="e#20832#21847#1" />
+                <element signature="e#28303#34905#0" />
+                <element signature="e#34911#39278#0" />
+                <element signature="e#39285#47628#0" />
+                <element signature="e#47634#47743#0" />
+                <element signature="e#47749#48657#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seafight/second_request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="170" selection-start-line="170" selection-end-line="170" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#435#471#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile_vertical" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/faq.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/faq.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Setings.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Settings.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/text_view_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stand_10_10.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stand_15_15.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/test.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Test.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Win_or_Lose.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_win_or_lose.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_play.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_play_15_15.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_play_button_15_15.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_play_5_5.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_play_button_5_5.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_play2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/OnClickListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Stand_10_10.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Stand_15_15.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stand_5_5.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_buttons_15_15.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_15_15.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_5_5.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Stand_5_5.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_buttons_5_5.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/second_request.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seafight/Person_buttons.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DEBUGGABLE_DEVICE" value="samsung-gt_i9500-4d00cc78b0339081" />
+    <property name="DEBUGGABLE_PROCESS" value="com.example.seafight" />
+    <property name="DEBUGGER_ID" value="Auto" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lover" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.seafight" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activ
